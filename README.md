@@ -1,31 +1,50 @@
-Solidity Packed-Encoding Utilities
-==================================
+# BlockVote — Blockchain Voting System
 
-This sub-module is part of the [ethers project](https://github.com/ethers-io/ethers.js).
+College/demo project using HTML/CSS/JavaScript, Solidity, Hardhat and MetaMask.
 
-It contains functions to perform Solidity-specific packed (i.e. non-standard)
-encoding operations.
+## Features
+- Voter ID + demo OTP verification
+- MetaMask wallet authentication
+- Admin candidate management
+- Start/stop election
+- One vote per wallet
+- Blockchain vote counting
+- Result dashboard
 
-For more information, see the [documentation](https://docs.ethers.io/v5/api/utils/hashing/#utils--solidity-hashing).
+## Run
+1. Install Node.js and MetaMask.
+2. In this folder run:
+   `npm install`
+3. Compile:
+   `npx hardhat compile`
+4. Start local blockchain in Terminal 1:
+   `npx hardhat node`
+5. In Terminal 2 deploy:
+   `npx hardhat run scripts/deploy.js --network localhost`
+6. Copy the printed contract address into:
+   `frontend/app.js`
+   replacing `PASTE_DEPLOYED_CONTRACT_ADDRESS_HERE`
+7. Serve frontend:
+   `npx http-server frontend -p 5500 -c-1`
+8. Open:
+   `http://127.0.0.1:5500`
 
-Importing
----------
+## MetaMask
+Add a custom network:
+- Network name: Hardhat Local
+- RPC URL: http://127.0.0.1:8545
+- Chain ID: 31337
+- Currency symbol: ETH
 
-Most users will prefer to use the [umbrella package](https://www.npmjs.com/package/ethers),
-but for those with more specific needs, individual components can be imported.
+Import one of the test accounts/private keys printed by `npx hardhat node`.
 
-```javascript
-const {
+## Demo flow
+1. Connect MetaMask using the first Hardhat account (admin).
+2. Add 2–3 candidates.
+3. Start election.
+4. Use another Hardhat account for voter.
+5. Enter any demo Voter ID/mobile and use the OTP shown on screen.
+6. Select candidate and cast vote.
+7. Refresh results.
 
-    pack,
-    keccak256,
-    sha256
-
-} = require("@ethersproject/solidity");
-```
-
-
-License
--------
-
-MIT License
+This is an educational prototype, not a real election system. Do not enter real Aadhaar or other sensitive identity data.
