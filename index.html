@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlockVote - Blockchain Voting System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand">BlockVote</div>
+  <button id="connectBtn">Connect MetaMask</button>
+</header>
+
+<main>
+  <section class="hero">
+    <span class="badge">BLOCKCHAIN DEMO PROJECT</span>
+    <h1>Secure Blockchain Voting System</h1>
+    <p>Transparent voting with wallet-based authentication and a Solidity smart contract.</p>
+    <div id="wallet" class="wallet">Wallet: Not connected</div>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h2>Voter Identification</h2>
+      <input id="voterId" placeholder="Enter Voter ID">
+      <input id="mobile" placeholder="Enter Mobile Number">
+      <button id="otpBtn">Send Demo OTP</button>
+      <input id="otp" placeholder="Enter OTP">
+      <button id="verifyBtn">Verify Voter</button>
+      <p id="verifyStatus" class="status"></p>
+      <small>Demo only: OTP is shown on screen. Do not use real personal data.</small>
+    </div>
+
+    <div class="card">
+      <h2>Cast Your Vote</h2>
+      <p id="electionStatus">Election status: Unknown</p>
+      <div id="candidates"></div>
+      <button id="voteBtn" disabled>Cast Selected Vote</button>
+      <p id="voteStatus" class="status"></p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-head">
+      <div>
+        <h2>Admin Panel</h2>
+        <p>Only the contract deployer can perform admin actions.</p>
+      </div>
+      <span id="adminStatus" class="pill">Not checked</span>
+    </div>
+    <div class="admin-grid">
+      <input id="candidateName" placeholder="Candidate name">
+      <button id="addCandidateBtn">Add Candidate</button>
+      <button id="startBtn">Start Election</button>
+      <button id="stopBtn">Stop Election</button>
+    </div>
+    <p id="adminMessage" class="status"></p>
+  </section>
+
+  <section class="card">
+    <div class="section-head">
+      <div>
+        <h2>Election Results</h2>
+        <p>Vote counts are read directly from the smart contract.</p>
+      </div>
+      <button id="refreshBtn">Refresh Results</button>
+    </div>
+    <div id="results"></div>
+  </section>
+</main>
+
+<footer>
+  College project/demo only — not for real public elections.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/ethers@6.13.5/dist/ethers.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
